@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+import api
+import ui
+
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/', include(api.urls)),
+    url(r'^', ui.ClassicDjangoFormView.as_view(), name="classic_django")
 ]
