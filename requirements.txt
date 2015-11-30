@@ -1,0 +1,6 @@
+django
+djangular
+djangorestframework
+pytest-django
+django-angular
+django-assets==0.11
