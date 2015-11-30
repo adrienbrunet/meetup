@@ -1,3 +1,12 @@
 {% extends "skeleton.html" %}
 
 {% block ng_app %}ng-app="example.app.static"{% endblock ng_app %}
+{% block form %}
+{% load crispy_forms_tags %}
+
+<form action="." method="post" accept-charset="utf-8">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <input type="submit" class="btn btn-primary" value="Add this New Beeeer"></input>
+</form>
+{% endblock form %}

@@ -1,3 +1,9 @@
-from django.shortcuts import render
+# coding: utf-8
 
-# Create your views here.
+from rest_framework import viewsets
+
+from .serializers import BeerSerializer
+
+
+class BeerViewSet(viewsets.ModelViewSet):
+    serializer_class = BeerSerializer

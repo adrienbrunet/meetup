@@ -24,10 +24,9 @@ js_main = Bundle(
 
     'djangular/js/django-angular.js',
 
-    'js/angular-app/dashboard/module.js',
-    'js/angular-app/dashboard/resources.js',
-    'js/angular-app/dashboard/controllers.js',
-    'js/angular-app/dispatch.js',
+    'js/angular-app/module.js',
+    'js/angular-app/resources.js',
+    'js/angular-app/controllers.js',
 
     filters='closure_js',
     output='compiled-assets/gen/js_main.%(version)s.js')

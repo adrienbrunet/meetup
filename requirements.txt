@@ -4,3 +4,6 @@ djangorestframework
 pytest-django
 django-angular
 django-assets==0.11
+yuicompressor
+closure
+django-crispy-forms==1.5.2

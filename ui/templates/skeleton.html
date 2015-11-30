@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" {% block html_class %}{% endblock html_class %}>
   <head>
-    {% block loading_assets %}{% load staticfiles %}{% load assets %}{% load title_switcher %}{% endblock loading_assets %}
+    {% block loading_assets %}{% load staticfiles %}{% load assets %}{% endblock loading_assets %}
     <title>{% block title %}Home{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
@@ -42,14 +42,14 @@
   <body {% block ng_app %}ng-app="example.app.static"{% endblock ng_app %}>
     {% block body %}
       <div>
-        {% block navbar %}{% endblock navbar %}
+        {% block navbar %}{% include "blocks/navbar.html" %}{% endblock navbar %}
         {% block all_content %}
           <div>
           <div class="alerts" ng-cloak>
             <alert ng-repeat="alert in alerts" type="{% verbatim %}{{ alert.type }}{% endverbatim %}" close="closeAlert($index)">{% verbatim %}{{ alert.msg }}{% endverbatim %}</alert>
           </div>
             <div class="wrapper-content">
-              <div class="container-fluid">
+              <div class="container">
                 {% block menu %}{% endblock menu%}
                 {% block content %}
                 <div class="row-fluid">

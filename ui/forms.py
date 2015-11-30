@@ -9,6 +9,7 @@ class BeerForm(forms.ModelForm):
     '''
     class Meta:
         model = Beer
+        fields = ('name', 'abv', 'comments', )
 
 
 class AngularBeer(BeerForm):
@@ -21,4 +22,3 @@ class ValidationAngularBeer(BeerForm):
 
 # class AngularModelFormMixin(NgModelFormMixin, NgFormValidationMixin, Bootstrap3ModelForm):
 #     required_css_class = "required"
-
