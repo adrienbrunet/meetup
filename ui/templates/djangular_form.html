@@ -2,10 +2,10 @@
 
 {% block ng_app %}ng-app="djangular-demo"{% endblock ng_app %}
 {% block form %}
-<form method="post" action="." validate>
+<form name="{{form.form_name}}" action="." method="post" accept-charset="utf-8">
     {% csrf_token %}
     {{ form.as_div }}
-    <button type="submit" class="btn btn-primary">Create a new beer, angular, Go!</button>
+    <input type="submit" class="btn btn-primary" value="Create a new beer, angular, Go!"></input>
 </form>
 {% endblock form %}
 

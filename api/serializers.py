@@ -6,7 +6,6 @@ from .models import Beer
 
 
 class BeerSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.pk')
 
     class Meta:
         model = Beer

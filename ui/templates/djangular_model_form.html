@@ -11,6 +11,7 @@
 {% endblock form %}
 
 {% block javascripts %}
+{% load djangular_tags %}
     {{ block.super }}
     <script type="text/javascript">
         angular.module('djangular-demo', ['ng.django.forms']).config(function($httpProvider) {
@@ -23,12 +24,13 @@
         angular.module('djangular-demo').controller('MyFormCtrl', function($scope, $http, $window, djangoForm) {
             $scope.submit = function() {
                 if ($scope.beer_data) {
-                    $http.post("/django_model_beer/", $scope.subscribe_data).success(function(out_data) {
+                    $http.post("/api/beers/", $scope.beer_data).success(function (out_data) {
                         if (!djangoForm.setErrors($scope.my_form, out_data.errors)) {
                             // on successful post, redirect onto success page
                             $window.location.href = out_data.success_url;
                         }
-                    }).error(function() {
+                    }).error(function (errors) {
+                        djangoForm.setErrors($scope.my_form, errors)
                         console.error('An error occured during submission');
                     });
                 }
