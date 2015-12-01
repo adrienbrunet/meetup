@@ -1,6 +1,6 @@
 <!-- Static navbar -->
 {% load static %}
-<nav class="navbar navbar-default navbar-static-top navbar-inverse" ng-controller="MenuController as menuCtrl">
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -18,8 +18,9 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{% url 'classic_django' %}" title="Classic django form"><span class="fa fa-beer"></span> Classic Beer</a></li>
-        <li><a href="{% url 'classic_django' %}" title="Classic django form"><span class="fa fa-beer"></span> Classic Beer</a></li>
-        <li><a href="{% url 'classic_django' %}" title="Classic django form"><span class="fa fa-beer"></span> Classic Beer</a></li>
+        <li><a href="{% url 'djangular_beer' %}" title="Djangular beer form"><span class="fa fa-beer"></span> Djangular Beer</a></li>
+        <li><a href="{% url 'djangular_validation_beer' %}" title="Djangular Validation form"><span class="fa fa-beer"></span> Djangular Validation Beer</a></li>
+        <li><a href="{% url 'djangular_model_beer' %}" title="Djangular model form"><span class="fa fa-beer"></span> Djangular Model Beer</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

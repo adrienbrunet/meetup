@@ -1,0 +1,40 @@
+{% extends "skeleton.html" %}
+
+{% block ng_app %}ng-app="djangular-demo"{% endblock ng_app %}
+{% block form %}
+<form name="{{ form.form_name }}" method="post" action="." validate ng-controller="MyFormCtrl">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button type="submit" class="btn btn-primary">Submit via Post</button>
+    <button type="button" ng-click="submit()" class="btn btn-primary">Submit via Ajax</button>
+</form>
+{% endblock form %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+        angular.module('djangular-demo', ['ng.django.forms']).config(function($httpProvider) {
+            $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+            $httpProvider.defaults.headers.common['X-CSRFToken'] = '{% csrf_value %}';
+        });
+    </script>
+
+    <script type="text/javascript">
+        angular.module('djangular-demo').controller('MyFormCtrl', function($scope, $http, $window, djangoForm) {
+            $scope.submit = function() {
+                if ($scope.beer_data) {
+                    $http.post("/django_model_beer/", $scope.subscribe_data).success(function(out_data) {
+                        if (!djangoForm.setErrors($scope.my_form, out_data.errors)) {
+                            // on successful post, redirect onto success page
+                            $window.location.href = out_data.success_url;
+                        }
+                    }).error(function() {
+                        console.error('An error occured during submission');
+                    });
+                }
+                return false;
+            };
+        });
+    </script>
+{% endblock javascripts %}
+

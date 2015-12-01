@@ -1,0 +1,17 @@
+{% extends "skeleton.html" %}
+
+{% block ng_app %}ng-app="djangular-demo"{% endblock ng_app %}
+{% block form %}
+<form method="post" action="." validate>
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button type="submit" class="btn btn-primary">Create a new beer, angular, Go!</button>
+</form>
+{% endblock form %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+        angular.module('djangular-demo', ['ng.django.forms']);
+    </script>
+{% endblock javascripts %}

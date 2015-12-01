@@ -39,7 +39,7 @@
       <style type="text/css">.gradient {filter: none;}</style>
     <![endif]-->
   </head>
-  <body {% block ng_app %}ng-app="example.app.static"{% endblock ng_app %}>
+  <body {% block ng_app %}{% endblock ng_app %}>
     {% block body %}
       <div>
         {% block navbar %}{% include "blocks/navbar.html" %}{% endblock navbar %}
